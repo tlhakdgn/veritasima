@@ -1,0 +1,15 @@
+@model GenreMoviesViewModel
+@{
+    Layout = "_Layout2";
+}
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+
+
+    @foreach (var movie in Model.Movies)
+    {
+        @await Html.PartialAsync("_Movies", movie)
+    }
