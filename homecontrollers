@@ -1,0 +1,125 @@
+  public IActionResult Index()
+        {
+            string movieTitle = "Esaretin Bedeli";
+            string movieDesc = "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.";
+            string movieDirect = "Stephen King";
+            string[] moviePlayers = { "Tim Robbins", "Morgan Freeman", "Bob Gunton" };
+            string ImageUrl = "https://tr.wikipedia.org/wiki/Dosya:Esaretin-bedeli.jpg";
+
+            var m = new Movie();
+
+            m.Title = movieTitle;
+
+            m.Description = movieDesc;
+
+            m.Director = movieDirect;
+
+            m.Players = moviePlayers;
+
+            m.ImageUrl = ImageUrl;
+
+            return View(m);
+        }
+
+        public IActionResult Privacy()
+        {
+            var movieList = new List<Movie>()
+            {
+                new Movie
+                {
+                 Title = "Esaretin Bedeli",
+                 Description = "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.",
+                 Director = "Stephen King",
+                 Players = new[] { "Tim Robbins", "Morgan Freeman", "Bob Gunton" },
+                 ImageUrl = "https://image.tmdb.org/t/p/w500/dXyIK3s8ZN7FH3AoaeyaBqX0eoJ.jpg"
+
+                },
+
+                new Movie
+                {
+                 Title = "Baba",
+                 Description = "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
+                 Director = "Francis Ford Coppola",
+                 Players = new[] { "Marlon Brando", "Al Pacino", "James Caan" },
+                 ImageUrl = "https://tr.web.img4.acsta.net/c_310_420/medias/nmedia/18/91/63/78/20155809.jpg"
+
+                },
+
+                new Movie
+                {
+                 Title = "Kara Şövalye",
+                 Description = "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+                 Director = "Christopher Nolan",
+                 Players = new[] { "Christian Bale", "Heath Ledger", "Aaron Eckhart" },
+                 ImageUrl = "https://upload.wikimedia.org/wikipedia/tr/4/4d/Kara_%C5%9E%C3%B6valye_TR_film_afi%C5%9Fi.jpg"
+
+                },
+
+                new Movie
+                {
+                 Title = "Ucuz Roman",
+                 Description = "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+                 Director = "Quentin Tarantino",
+                 Players = new[] { "John Travolta ", "Uma Thurman", " Samuel L. Jackson" },
+                 ImageUrl = "https://www.arthipo.com/image/cache/catalog/poster/movie/1-758/pfilm113-pulp-fiction-ucuz-roman-poster-773x1100.jpg"
+
+                },
+
+                new Movie
+                {
+                 Title = "Forrest Gump",
+                 Description = "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
+                 Director = "Robert Zemeckis",
+                 Players = new[] { "Tom Hanks", "Robin Wright", "Gary Sinise" },
+                 ImageUrl = "https://upload.wikimedia.org/wikipedia/tr/b/bb/Forrest_Gump_%28film%2C_1994%29.jpg"
+
+                },
+
+                new Movie
+                {
+                 Title = "Başlangıç",
+                 Description = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+                 Director = "Christopher Nolan",
+                 Players = new[] { "Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page" },
+                 ImageUrl = "https://tr.web.img4.acsta.net/pictures/bzp/01/143692.jpg"
+
+                },
+            };
+
+            var genreList = new List<Genre>()
+            {
+                new Genre
+                {
+                    movieGenre = "Aksiyon"
+                },
+
+                new Genre
+                {
+                    movieGenre = "Komedi"
+                },
+
+                new Genre
+                {
+                    movieGenre = "Macera"
+                },
+
+                new Genre
+                {
+                    movieGenre = "Animasyon"
+                },
+
+                new Genre
+                {
+                    movieGenre = "Dram"
+                },
+            };
+
+            var model = new GenreMoviesViewModel()
+            {
+
+                Genres = genreList,
+                Movies = movieList,
+
+            };
+            return View(model);
+        }
